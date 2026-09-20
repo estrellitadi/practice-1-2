@@ -47,4 +47,14 @@ export function parseTransactions(rawData: unknown[]): {
 // deposit прибавляет amount, withdrawal вычитает.
 export function calculateBalance(transactions: Transaction[]): number {
   let balance = 0;
+
+  for (const t of transactions) {
+    if (t.type === "deposit") {
+      balance += t.amount;
+    } else if (t.type === "withdrawal") {
+      balance -= t.amount;
+    }
+  }
+
+  return balance;
 }
