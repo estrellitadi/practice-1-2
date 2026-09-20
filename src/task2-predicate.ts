@@ -17,9 +17,9 @@ export function isTransaction(data: unknown): data is Transaction {
     "id" in data &&
     "amount" in data &&
     "type" in data &&
-    typeof (data as any).id === "string" &&
-    typeof (data as any).amount === "number" &&
-    ((data as any).type === "deposit" || (data as any).type === "withdrawal")
+    typeof data.id === "string" &&
+    typeof data.amount === "number" &&
+    (data.type === "deposit" || data.type === "withdrawal")
   );
 }
 
