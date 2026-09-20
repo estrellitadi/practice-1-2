@@ -18,7 +18,10 @@ if (typeof value === "string") {
 // Если error это Error - вернуть error.message
 // Иначе вернуть "Ошибка: <error>" (приведя error к строке)
 export function formatError(error: Error | string): string {
-  // Напишите код здесь
+if (error instanceof Error) {
+    return error.message;
+  }
+  return `Ошибка: ${error}`;
 }
 
 // 3. Сужение через оператор in
