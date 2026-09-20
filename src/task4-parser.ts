@@ -24,13 +24,27 @@ export function isTransaction(data: unknown): data is Transaction {
 // Возвращает объект { valid: Transaction[], errors: string[] }
 // Логика: пройтись по массиву. Если isTransaction(item) - добавить в valid.
 // Иначе - добавить строку "Invalid item: <item>" в errors.
-export function parseTransactions(rawData: unknown[]): { valid: Transaction[]; errors: string[] } {
-  // Напишите код здесь
+export function parseTransactions(rawData: unknown[]): {
+  valid: Transaction[];
+  errors: string[];
+} {
+  const valid: Transaction[] = [];
+  const errors: string[] = [];
+
+  for (const item of rawData) {
+    if (isTransaction(item)) {
+      valid.push(item);
+    } else {
+      errors.push(`Invalid item: ${JSON.stringify(item)}`);
+    }
+  }
+
+  return { valid, errors };
 }
 
 // 3. Напишите функцию calculateBalance
 // Принимает массив валидных транзакций.
 // deposit прибавляет amount, withdrawal вычитает.
 export function calculateBalance(transactions: Transaction[]): number {
-  // Напишите код здесь
+  let balance = 0;
 }
