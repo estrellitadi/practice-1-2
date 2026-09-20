@@ -31,5 +31,8 @@ type Bird = { fly: () => string };
 // Если у animal есть метод swim - вернуть "Плывет", иначе "Летит"
 // Подсказка: используйте оператор "in" (например, "swim" in animal)
 export function moveAnimal(animal: Fish | Bird): string {
-  // Напишите код здесь
+  if ("swim" in animal) {
+    return "Плывет";
+  }
+  return "Летит";
 }
