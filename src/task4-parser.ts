@@ -7,7 +7,16 @@ export type Transaction = {
 
 // 1. Напишите предикат isTransaction (можно скопировать из task2)
 export function isTransaction(data: unknown): data is Transaction {
-  // ...
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "id" in data &&
+    "amount" in data &&
+    "type" in data &&
+    typeof data.id === "string" &&
+    typeof data.amount === "number" &&
+    (data.type === "deposit" || data.type === "withdrawal")
+  );
 }
 
 // 2. Напишите функцию parseTransactions
