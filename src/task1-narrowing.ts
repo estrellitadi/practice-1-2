@@ -2,7 +2,16 @@
 // Если value строка - вернуть "Строка: <value>", если число - "Число: <value>", 
 // если boolean - "Логическое: <value>"
 export function describeValue(value: string | number | boolean): string {
-  // Напишите код здесь
+if (typeof value === "string") {
+    return `Строка: ${value}`;
+  }
+  if (typeof value === "number") {
+    return `Число: ${value}`;
+  }
+  if (typeof value === "boolean") {
+    return `Логическое: ${value}`;
+  }
+  return "";
 }
 
 // 2. Сужение через instanceof
